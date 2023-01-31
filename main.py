@@ -20,9 +20,9 @@ def save_files(requests):
   with alive_bar(len(requests), dual_line=True, title='  [*] Extracting mp4                       ') as bar:
     for r in requests:
       #(v) Extract file name from url for indexing files such as
-      #     https://jui02.xyz/videos/5296c3c88cf/5296c3c88cf-1200-0-00009.html
-      #     shall become 00009
-      file_name = r.url.split('-')[-1].split('.')[0]
+      #     'https://jui02.xyz/videos/5296c3c88cf/5296c3c88cf-1200-0-00009.html'
+      #     shall become '5296c3c88cf-1200-0-00009'
+      file_name = r.url.split('/')[-1].split('.')[0]
       # Save to temp folder
       dir = settings.BASE_DIR / f'temp/{file_name}.mp4'
       open(dir, 'wb').write(r.content)
@@ -107,7 +107,9 @@ def download(m3u8_url):
 
 def main():
   print('')
-  print('Please enter m3u8 url (ex. https://master.barlow-master.com/api/player/bitrate/5296c3c3b/5296c3c3b-1200-0.m3u8)')
+  print('Please enter m3u8 url')
+  print('  (ex 1. https://master.barlow-master.com/api/player/bitrate/5296c3c3b/5296c3c3b-1200-0.m3u8)')
+  print('  (ex 2. /home/user/git/m3u8-scraper/input.m3u8)')
   m3u8_url = input('-> ')
   print('Please enter output file name (ex. output_video)')
   output_file_name = input('-> ')
