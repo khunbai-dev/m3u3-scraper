@@ -80,10 +80,10 @@ def download(m3u8_url):
     split_text = i.uri.split('url=')
     url = split_text[-1]
     set_of_unsent_request.append(grequests.get(url))
-
     # Print out example of url for checking the result.
     if index == 0:
       print(f'  Example of downloading url "{url}"')
+    index += 1
 
   '''
   Desc: There is no need to divided unsent request object into equal-sized chunks
