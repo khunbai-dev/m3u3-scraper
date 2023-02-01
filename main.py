@@ -107,7 +107,7 @@ def download(m3u8_url):
 
 def main():
   print('')
-  print('Please enter m3u8 url')
+  print('Please enter m3u8 url or m3u8 file location')
   print('  (ex 1. https://master.barlow-master.com/api/player/bitrate/5296c3c3b/5296c3c3b-1200-0.m3u8)')
   print('  (ex 2. /home/user/git/m3u8-scraper/input.m3u8)')
   m3u8_url = input('-> ')
